@@ -24,7 +24,7 @@ module Stateoscope
     ENTRY_POINT = '__ENTRY_POINT__'
 
     def filename
-      "#{integration.name}-#{state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%s')}"
+      "#{integration.name}-#{state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}"
     end
 
     def add_entry_point
