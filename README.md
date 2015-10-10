@@ -7,6 +7,7 @@
 [![Gem Version](https://badge.fury.io/rb/stateoscope.svg)](https://badge.fury.io/rb/stateoscope)
 [![Gem Downloads](https://img.shields.io/gem/dt/stateoscope.svg)](https://rubygems.org/gems/stateoscope)
 [![Dependency Status](https://gemnasium.com/padde/stateoscope.svg)](https://gemnasium.com/padde/stateoscope)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 Visualize State Machines using GraphViz
 
