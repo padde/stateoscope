@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe Stateoscope do
-  it 'has a version number' do
-    expect(Stateoscope::VERSION).not_to be nil
+  describe '::VERSION' do
+    it 'is present' do
+      expect(described_class::VERSION).not_to be nil
+    end
   end
 
   describe '.filename_for' do
