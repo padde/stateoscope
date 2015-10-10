@@ -14,6 +14,6 @@ module Stateoscope
   end
 
   def self.filename_for(integration)
-    "#{integration.full_state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%s')}"
+    "#{integration.full_state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}"
   end
 end
