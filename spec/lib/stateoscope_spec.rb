@@ -7,6 +7,10 @@ describe Stateoscope do
     end
   end
 
+  describe '.visualize' do
+    pending
+  end
+
   describe '.filename_for' do
     it 'generates a filename with the state machine name and utc timestamp' do
       integration = object_double(
