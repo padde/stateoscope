@@ -7,7 +7,7 @@ module Stateoscope
       if klass.ancestors.include?(::AASM)
         ::Stateoscope::Integration::AASM.new(klass, state_machine_name)
       else
-        fail NotImplementedError, "unsupported state machine implementation"
+        fail MissingIntegrationError, 'unsupported state machine implementation'
       end
     end
   end
