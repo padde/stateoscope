@@ -9,6 +9,15 @@ Visualize State Machines using GraphViz
 
 ## Installation
 
+Stateoscope depends on [GraphViz](http://www.graphviz.org/) for generating the
+graphs. You need to make sure that GraphViz is properly installed on your system
+before you will be able to generate graphs. If you are on a Mac, you can install
+GraphViz via [Homebrew](http://brew.sh/)
+
+```
+$ brew install graphviz
+```
+
 Add this line to your application's Gemfile:
 
 ```ruby
