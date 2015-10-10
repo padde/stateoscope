@@ -23,10 +23,6 @@ module Stateoscope
 
     ENTRY_POINT = '__ENTRY_POINT__'
 
-    def filename
-      "#{integration.name}-#{state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}"
-    end
-
     def add_entry_point
       return unless graph.initial_state
       add_node(ENTRY_POINT, shape: 'circle', label: '', style: 'filled', color: 'black', fixedsize: true, width: 0.3)
