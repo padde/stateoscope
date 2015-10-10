@@ -1,7 +1,7 @@
 require 'ruby-graphviz'
 
 module Stateoscope
-  class Visualizer < Struct.new(:graph)
+  Visualizer = Struct.new(:graph) do
     def initialize(graph)
       super
       parse_graph!
