@@ -1,4 +1,6 @@
 require 'stateoscope/graph'
+require 'stateoscope/integration/base'
+
 require 'stateoscope/integration/aasm'
 
 module Stateoscope

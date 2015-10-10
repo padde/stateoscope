@@ -1,6 +1,6 @@
 module Stateoscope
   module Integration
-    class AASM < Struct.new(:klass, :state_machine_name)
+    class AASM < Base
       def graph
         graph = Graph.new
 
