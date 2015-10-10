@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 namespace :stateoscope do
   desc 'visualize state machine for a given class'
   task :visualize, [:class, :state_machine_name] => :environment do |t, args|
