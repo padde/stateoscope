@@ -1,5 +1,5 @@
 require 'stateoscope/version'
-require 'stateoscope/integrations'
+require 'stateoscope/integration'
 require 'stateoscope/visualizer'
 
 require 'stateoscope/railtie' if defined?(Rails)
@@ -7,7 +7,7 @@ require 'stateoscope/railtie' if defined?(Rails)
 module Stateoscope
   def self.visualize(klass, options = {})
     state_machine_name = options.fetch(:state_machine_name, nil)
-    integration = Integrations.new_for(klass, state_machine_name)
+    integration = Integration.new_for(klass, state_machine_name)
     filename = options.fetch(:filename, filename_for(integration))
     Visualizer.new(integration.graph).output(filename)
   end

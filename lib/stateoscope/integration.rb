@@ -1,11 +1,11 @@
 require 'stateoscope/graph'
-require 'stateoscope/integrations/aasm'
+require 'stateoscope/integration/aasm'
 
 module Stateoscope
-  module Integrations
+  module Integration
     def self.new_for(klass, state_machine_name)
       if klass.ancestors.include?(::AASM)
-        ::Stateoscope::Integrations::AASM.new(klass, state_machine_name)
+        ::Stateoscope::Integration::AASM.new(klass, state_machine_name)
       else
         fail NotImplementedError, "unsupported state machine implementation"
       end
