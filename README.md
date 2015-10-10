@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/padde/stateoscope.svg)](https://travis-ci.org/padde/stateoscope)
 [![Code Climate](https://codeclimate.com/github/padde/stateoscope/badges/gpa.svg)](https://codeclimate.com/github/padde/stateoscope)
 [![Test Coverage](https://codeclimate.com/github/padde/stateoscope/badges/coverage.svg)](https://codeclimate.com/github/padde/stateoscope/coverage)
+[![Inline docs](http://inch-ci.org/github/padde/stateoscope.svg?branch=master)](http://inch-ci.org/github/padde/stateoscope)
 
 Visualize State Machines using GraphViz
 
