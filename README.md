@@ -12,7 +12,7 @@
 
 Visualize State Machines using GraphViz
 
-## Installation
+## External Dependencies
 
 Stateoscope depends on [GraphViz](http://www.graphviz.org/) for generating the
 graphs. You need to make sure that GraphViz is properly installed on your system
@@ -22,6 +22,8 @@ GraphViz via [Homebrew](http://brew.sh/)
 ```
 $ brew install graphviz
 ```
+
+## Installation
 
 Add this line to your application's Gemfile:
 
