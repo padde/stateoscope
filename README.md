@@ -1,5 +1,7 @@
 # Stateoscope
 
+[![Build Status](https://travis-ci.org/padde/stateoscope.svg)](https://travis-ci.org/padde/stateoscope)
+
 Visualize State Machines using GraphViz
 
 ## Installation
