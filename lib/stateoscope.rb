@@ -1,4 +1,5 @@
 require 'stateoscope/version'
+require 'stateoscope/errors'
 require 'stateoscope/integration'
 require 'stateoscope/visualizer'
 
