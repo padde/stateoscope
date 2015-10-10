@@ -23,7 +23,7 @@ module Stateoscope
 
       def full_state_machine_name
         [
-          "aasm",
+          'aasm',
           klass.name,
           state_machine_name
         ].compact.join('-').dasherize
