@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Patrick Oscity']
   spec.email         = ['patrick.oscity@gmail.com']
 
-  spec.summary       = %q{State Machine Visualizer}
-  spec.description   = %q{Visualize State Machines using GraphViz}
+  spec.summary       = 'State Machine Visualizer'
+  spec.description   = 'Visualize State Machines using GraphViz'
   spec.homepage      = 'https://github.com/padde/stateoscope'
   spec.license       = 'MIT'
 
