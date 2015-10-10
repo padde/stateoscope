@@ -5,6 +5,7 @@
 [![Test Coverage](https://codeclimate.com/github/padde/stateoscope/badges/coverage.svg)](https://codeclimate.com/github/padde/stateoscope/coverage)
 [![Inline docs](http://inch-ci.org/github/padde/stateoscope.svg?branch=master)](http://inch-ci.org/github/padde/stateoscope)
 [![Gem Version](https://badge.fury.io/rb/stateoscope.svg)](https://badge.fury.io/rb/stateoscope)
+[![Gem Downloads](https://img.shields.io/gem/dt/stateoscope.svg)](https://rubygems.org/gems/stateoscope)
 [![Dependency Status](https://gemnasium.com/padde/stateoscope.svg)](https://gemnasium.com/padde/stateoscope)
 
 Visualize State Machines using GraphViz
