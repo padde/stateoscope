@@ -14,7 +14,7 @@ module Stateoscope
       @states << state
     end
 
-    def add_transition(from, to, event)
+    def add_transition(from, to, event = nil)
       @transitions << OpenStruct.new(from: from, to: to, event: event)
     end
 
