@@ -12,7 +12,7 @@ Visualize State Machines using GraphViz
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'stateoscope'
+gem 'stateoscope', group: :development
 ```
 
 And then execute:
