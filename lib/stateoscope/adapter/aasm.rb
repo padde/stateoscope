@@ -1,5 +1,5 @@
 module Stateoscope
-  module Integration
+  module Adapter
     class AASM < Base
       def graph
         graph = Graph.new

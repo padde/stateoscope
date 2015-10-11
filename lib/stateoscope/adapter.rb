@@ -1,15 +1,15 @@
 require 'stateoscope/graph'
-require 'stateoscope/integration/base'
+require 'stateoscope/adapter/base'
 
-require 'stateoscope/integration/aasm' if defined?(::AASM)
+require 'stateoscope/adapter/aasm' if defined?(::AASM)
 
 module Stateoscope
-  module Integration
+  module Adapter
     def self.new_for(klass, state_machine_name)
       if class_inherits_from?(klass, '::AASM')
-        ::Stateoscope::Integration::AASM.new(klass, state_machine_name)
+        ::Stateoscope::Adapter::AASM.new(klass, state_machine_name)
       else
-        fail MissingIntegrationError, 'unsupported state machine implementation'
+        fail MissingAdapterError, 'unsupported state machine implementation'
       end
     end
 

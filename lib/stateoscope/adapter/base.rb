@@ -1,5 +1,5 @@
 module Stateoscope
-  module Integration
+  module Adapter
     Base = Struct.new(:klass, :state_machine_name) do
       def graph
         fail AbstractMethodError

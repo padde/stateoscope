@@ -53,9 +53,9 @@ rake 'stateoscope:visualize[Model,specific_state_machine]'
 In both cases, a PDF file containing the graph visualization will be saved to
 the current directory.
 
-## Integrations
+## Adapters
 
-Stateoscope is currently integrated with the following state machine gems:
+Stateoscope ships with adapters for the following state machine gems:
 
 * [AASM](https://github.com/aasm/aasm)
 
