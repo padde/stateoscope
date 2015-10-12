@@ -1,4 +1,3 @@
-require 'stateoscope/graph'
 require 'stateoscope/adapter/base'
 
 require 'stateoscope/adapter/aasm' if defined?(::AASM)
