@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 require 'stateoscope/version'
 require 'stateoscope/errors'
 require 'stateoscope/adapter'
