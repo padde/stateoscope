@@ -1,15 +1,21 @@
-require 'stateoscope/adapter/base'
-
-require 'stateoscope/adapter/aasm' if defined?(::AASM)
+require 'stateoscope/adapter_registry'
 
 module Stateoscope
   module Adapter
+    mattr_accessor :registry
+
+    self.registry = AdapterRegistry.new
+
+    def self.register(adapter)
+      registry.register(adapter)
+    end
+
     def self.new_for(klass, state_machine_name)
-      if klass.inherits_from?('::AASM')
-        ::Stateoscope::Adapter::AASM.new(klass, state_machine_name)
-      else
-        fail MissingAdapterError, 'unsupported state machine implementation'
-      end
+      adapter = registry.find!(klass, state_machine_name)
+      adapter.new(klass, state_machine_name)
     end
   end
 end
+
+require 'stateoscope/adapter/base'
+require 'stateoscope/adapter/aasm'

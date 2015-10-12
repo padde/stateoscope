@@ -1,6 +1,9 @@
 module Stateoscope
   module Adapter
     class AASM < Base
+      def self.handle?(klass, _state_machine_name)
+        klass.inherits_from?('::AASM')
+      end
 
       def build_graph
         add_initial_state
@@ -41,5 +44,7 @@ module Stateoscope
         end
       end
     end
+
+    register ::Stateoscope::Adapter::AASM
   end
 end
