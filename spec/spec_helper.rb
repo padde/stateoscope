@@ -5,6 +5,7 @@ end
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'stateoscope'
+require_relative 'support/matchers'
 
 require 'timecop'
 
