@@ -8,7 +8,41 @@ describe Stateoscope do
   end
 
   describe '.visualize' do
-    pending
+    DummyClass = Class.new
+
+    context 'without options' do
+      it 'runs a visualizer' do
+        graph = double(Stateoscope::Graph)
+
+        adapter = double(Stateoscope::Adapter::Base, build_graph: nil, graph: graph)
+        expect(Stateoscope::Adapter).to receive(:new_for).with(DummyClass, nil).and_return(adapter)
+
+        expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
+
+        visualizer = double(Stateoscope::Visualizer)
+        expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
+        expect(visualizer).to receive(:output).with('filename')
+
+        described_class.visualize(DummyClass)
+      end
+    end
+
+    context 'with state_machine_name option' do
+      it 'runs a visualizer' do
+        graph = double(Stateoscope::Graph)
+
+        adapter = double(Stateoscope::Adapter::Base, build_graph: nil, graph: graph)
+        expect(Stateoscope::Adapter).to receive(:new_for).with(DummyClass, :foobar).and_return(adapter)
+
+        expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
+
+        visualizer = double(Stateoscope::Visualizer)
+        expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
+        expect(visualizer).to receive(:output).with('filename')
+
+        described_class.visualize(DummyClass, state_machine_name: :foobar)
+      end
+    end
   end
 
   describe '.filename_for' do
