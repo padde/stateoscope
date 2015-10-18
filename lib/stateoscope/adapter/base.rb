@@ -11,11 +11,6 @@ module Stateoscope
         self.graph = Graph.new
       end
 
-      def graph
-        build_graph
-        graph
-      end
-
       def build_graph
         fail AbstractMethodError
       end

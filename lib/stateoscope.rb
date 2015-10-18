@@ -13,6 +13,7 @@ module Stateoscope
   def self.visualize(klass, options = {})
     state_machine_name = options.fetch(:state_machine_name, nil)
     adapter = Adapter.new_for(klass, state_machine_name)
+    adapter.build_graph
     filename = options.fetch(:filename, filename_for(adapter))
     Visualizer.new(adapter.graph).output(filename)
   end
