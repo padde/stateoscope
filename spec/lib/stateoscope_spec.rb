@@ -19,7 +19,7 @@ describe Stateoscope do
 
         expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
 
-        visualizer = double(Stateoscope::Visualizer)
+        visualizer = double(Stateoscope::Visualizer, parse_graph: nil)
         expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
         expect(visualizer).to receive(:output).with('filename')
 
@@ -36,7 +36,7 @@ describe Stateoscope do
 
         expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
 
-        visualizer = double(Stateoscope::Visualizer)
+        visualizer = double(Stateoscope::Visualizer, parse_graph: nil)
         expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
         expect(visualizer).to receive(:output).with('filename')
 

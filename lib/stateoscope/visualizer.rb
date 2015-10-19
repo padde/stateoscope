@@ -2,12 +2,7 @@ require 'ruby-graphviz'
 
 module Stateoscope
   Visualizer = Struct.new(:graph) do
-    def initialize(graph)
-      super
-      parse_graph!
-    end
-
-    def parse_graph!
+    def parse_graph
       @viz = GraphViz.new(:G, type: 'digraph')
       add_entry_point
       add_states

@@ -15,7 +15,9 @@ module Stateoscope
     adapter = Adapter.new_for(klass, state_machine_name)
     adapter.build_graph
     filename = filename_for(adapter)
-    Visualizer.new(adapter.graph).output(filename)
+    visualizer = Visualizer.new(adapter.graph)
+    visualizer.parse_graph
+    visualizer.output(filename)
   end
 
   def self.filename_for(adapter)
