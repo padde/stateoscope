@@ -12,12 +12,15 @@ require 'stateoscope/railtie' if defined?(Rails)
 module Stateoscope
   def self.visualize(klass, options = {})
     state_machine_name = options.fetch(:state_machine_name, nil)
+    dir = options[:dir]
+    format = options.fetch(:format, 'pdf')
     adapter = Adapter.new_for(klass, state_machine_name)
     adapter.build_graph
     filename = filename_for(adapter)
     visualizer = Visualizer.new(adapter.graph, options[:current_state])
     visualizer.parse_graph
-    visualizer.output(filename)
+    filename = File.join(dir, filename) if dir.present?
+    visualizer.output(filename, format)
   end
 
   def self.filename_for(adapter)

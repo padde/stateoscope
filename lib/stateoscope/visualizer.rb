@@ -10,8 +10,11 @@ module Stateoscope
       add_state_transitions
     end
 
-    def output(filename)
-      @viz.output(pdf: "#{filename}.pdf")
+    def output(filename, format)
+      options = {}
+      options[format] = "#{filename}.#{format}"
+      @viz.output(options)
+      "#{filename}.#{format}"
     end
 
     private
