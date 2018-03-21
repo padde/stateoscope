@@ -1,7 +1,7 @@
 require 'ruby-graphviz'
 
 module Stateoscope
-  Visualizer = Struct.new(:graph) do
+  Visualizer = Struct.new(:graph, :current_state) do
     def parse_graph
       @viz = GraphViz.new(:G, type: 'digraph')
       add_entry_point
@@ -25,7 +25,9 @@ module Stateoscope
 
     def add_states
       graph.states.each do |state|
-        add_node(state, peripheries: graph.final_state?(state) ? 2 : 1)
+        options = { peripheries: graph.final_state?(state) ? 2 : 1 }
+        options[:color] = 'green' if state == current_state
+        add_node(state, options)
       end
     end
 
