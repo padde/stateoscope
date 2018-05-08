@@ -11,7 +11,7 @@ require 'stateoscope/railtie' if defined?(Rails)
 
 module Stateoscope
   def self.visualize(klass, options = {})
-    state_machine_name = options.fetch(:state_machine_name, nil)
+    state_machine_name = options[:state_machine_name]
     dir = options[:dir]
     format = options.fetch(:format, 'pdf')
     adapter = Adapter.new_for(klass, state_machine_name)
