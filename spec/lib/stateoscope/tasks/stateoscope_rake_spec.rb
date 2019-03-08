@@ -29,7 +29,7 @@ RSpec.describe 'rake stateoscope' do
         stateoscope = class_double('Stateoscope').as_stubbed_const
         allow(stateoscope).to receive(:visualize)
         rake['stateoscope:visualize'].invoke('DummyClass')
-        expect(stateoscope).to have_received(:visualize).with(DummyClass, state_machine_name: nil)
+        expect(stateoscope).to have_received(:visualize).with(DummyClass, {})
       end
     end
 
@@ -39,6 +39,15 @@ RSpec.describe 'rake stateoscope' do
         allow(stateoscope).to receive(:visualize)
         rake['stateoscope:visualize'].invoke('DummyClass', 'foo')
         expect(stateoscope).to have_received(:visualize).with(DummyClass, state_machine_name: 'foo')
+      end
+    end
+
+    context 'with three arguments' do
+      it 'invokes Stateoscope.visualize with the supplied class and state_machine_name and current_state' do
+        stateoscope = class_double('Stateoscope').as_stubbed_const
+        allow(stateoscope).to receive(:visualize)
+        rake['stateoscope:visualize'].invoke('DummyClass', 'foo', 'bar')
+        expect(stateoscope).to have_received(:visualize).with(DummyClass, state_machine_name: 'foo', current_state: 'bar')
       end
     end
   end

@@ -8,7 +8,8 @@ RSpec.describe Stateoscope::Adapter::Base do
 
   describe '#initialize' do
     it 'initializes a graph' do
-      adapter = described_class.new
+      class Example; end
+      adapter = described_class.new Example, "ExampleState"
       expect(adapter.graph).to be_a(Stateoscope::Graph)
     end
   end

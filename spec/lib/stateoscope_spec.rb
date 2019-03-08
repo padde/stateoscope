@@ -20,8 +20,8 @@ describe Stateoscope do
         expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
 
         visualizer = double(Stateoscope::Visualizer, parse_graph: nil)
-        expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
-        expect(visualizer).to receive(:output).with('filename')
+        expect(Stateoscope::Visualizer).to receive(:new).with(graph, nil).and_return(visualizer)
+        expect(visualizer).to receive(:output).with('filename', 'pdf')
 
         described_class.visualize(DummyClass)
       end
@@ -37,8 +37,8 @@ describe Stateoscope do
         expect(described_class).to receive(:filename_for).with(adapter).and_return('filename')
 
         visualizer = double(Stateoscope::Visualizer, parse_graph: nil)
-        expect(Stateoscope::Visualizer).to receive(:new).with(graph).and_return(visualizer)
-        expect(visualizer).to receive(:output).with('filename')
+        expect(Stateoscope::Visualizer).to receive(:new).with(graph, nil).and_return(visualizer)
+        expect(visualizer).to receive(:output).with('filename', 'pdf')
 
         described_class.visualize(DummyClass, state_machine_name: :foobar)
       end
@@ -48,7 +48,7 @@ describe Stateoscope do
   describe '.filename_for' do
     it 'generates a filename with the state machine name and utc timestamp' do
       adapter = object_double(
-        Stateoscope::Adapter::Base.new,
+        Stateoscope::Adapter::Base.new(DummyClass, 'Example'),
         full_state_machine_name: 'foo'
       )
       Timecop.freeze(Time.new(2015, 1, 2, 3, 4, 5, 0)) do
