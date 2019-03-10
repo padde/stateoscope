@@ -32,7 +32,7 @@ And then execute:
 
     $ bundle
 
-## Usage
+## Using the rake task
 
 To generate a state machine visualization for your `Model`, run
 
@@ -47,14 +47,38 @@ of the state machine as second parameter
 rake 'stateoscope:visualize[Model,specific_state_machine]'
 ```
 
-In both cases, a PDF file containing the graph visualization will be saved to
+If you want to highlight a specific state of your state machine, add the name as a third argument.
+
+```ruby
+rake 'stateoscope:visualize[Order,order_state,delivered]'
+```
+
+In any case, a PDF file containing the graph visualization will be saved to
 the current directory.
+
+## Using Stateoscope directly
+
+Stateoscope exposes a `visualize` method that allows for a more fine-grained and dynamic usage.
+
+Example:
+
+```ruby
+filename = Stateoscope.visualize(
+  Order,
+  state_machine_name: "order_state",
+  current_state: "delivered",
+  dir: Rails.root.join("public"), # default current directory
+  format: "png" # default "pdf", possible are all formats that GraphViz supports
+)
+
+# filename will be for example RAILS_ROOT/public/order_state-20191201145422.png
+```
 
 ## Adapters
 
 Stateoscope ships with adapters for the following state machine gems:
 
-* [AASM](https://github.com/aasm/aasm)
+- [AASM](https://github.com/aasm/aasm)
 
 ## Development
 
@@ -65,4 +89,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/padde/stateoscope.
-
