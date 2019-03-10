@@ -11,16 +11,21 @@ require 'stateoscope/railtie' if defined?(Rails)
 
 module Stateoscope
   def self.visualize(klass, options = {})
-    state_machine_name = options.fetch(:state_machine_name, nil)
-    adapter = Adapter.new_for(klass, state_machine_name)
+    adapter = Adapter.new_for(klass, options[:state_machine_name])
     adapter.build_graph
-    filename = filename_for(adapter)
+
     visualizer = Visualizer.new(adapter.graph)
-    visualizer.parse_graph
-    visualizer.output(filename)
+    visualizer.parse_graph(options[:current_state])
+
+    output_format = options.fetch(:format, 'pdf')
+    filename = filename_for(adapter, output_format)
+    filename = File.join(options[:dir], filename) if options[:dir].present?
+
+    visualizer.output(filename, output_format)
+    filename
   end
 
-  def self.filename_for(adapter)
-    "#{adapter.full_state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}"
+  def self.filename_for(adapter, output_format)
+    "#{adapter.full_state_machine_name}-#{Time.now.utc.strftime('%Y%m%d%H%M%S')}.#{output_format}"
   end
 end

@@ -2,16 +2,16 @@ require 'ruby-graphviz'
 
 module Stateoscope
   Visualizer = Struct.new(:graph) do
-    def parse_graph
+    def parse_graph(current_state)
       @viz = GraphViz.new(:G, type: 'digraph')
       add_entry_point
-      add_states
+      add_states(current_state)
       add_entry_point_transition
       add_state_transitions
     end
 
-    def output(filename)
-      @viz.output(pdf: "#{filename}.pdf")
+    def output(filename, output_format)
+      @viz.output(output_format => filename)
     end
 
     private
@@ -23,9 +23,11 @@ module Stateoscope
       add_node(ENTRY_POINT, shape: 'circle', label: '', style: 'filled', color: 'black', fixedsize: true, width: 0.3)
     end
 
-    def add_states
+    def add_states(current_state)
       graph.states.each do |state|
-        add_node(state, peripheries: graph.final_state?(state) ? 2 : 1)
+        options = { peripheries: graph.final_state?(state) ? 2 : 1 }
+        options[:color] = 'green' if state == current_state
+        add_node(state, options)
       end
     end
 
