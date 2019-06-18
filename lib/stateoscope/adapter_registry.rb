@@ -5,7 +5,7 @@ module Stateoscope
     end
 
     def register(adapter)
-      adapters << adapter
+      adapters.unshift adapter
     end
 
     def find(klass, state_machine_name)

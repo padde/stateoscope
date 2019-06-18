@@ -21,13 +21,13 @@ RSpec.describe Stateoscope::Adapter do
       klass = Class.new
       state_machine_name = :foo
 
-      wrong_adapter = class_double(Stateoscope::Adapter::Base, new: :wrong)
-      expect(wrong_adapter).to receive(:handle?).with(klass, state_machine_name).and_return(false)
-      described_class.register(wrong_adapter)
-
       correct_adapter = class_double(Stateoscope::Adapter::Base, new: :correct)
       expect(correct_adapter).to receive(:handle?).with(klass, state_machine_name).and_return(true)
       described_class.register(correct_adapter)
+
+      wrong_adapter = class_double(Stateoscope::Adapter::Base, new: :wrong)
+      expect(wrong_adapter).to receive(:handle?).with(klass, state_machine_name).and_return(false)
+      described_class.register(wrong_adapter)
 
       expect(described_class.new_for(klass, state_machine_name)).to eq(:correct)
     end

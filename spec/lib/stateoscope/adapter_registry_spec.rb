@@ -97,4 +97,15 @@ RSpec.describe Stateoscope::AdapterRegistry do
       end
     end
   end
+
+  describe 'registering multiple matching adapters' do
+    let(:existing_adapter) { class_double(Stateoscope::Adapter::Base, handle?: true) }
+    let(:new_adapter) { class_double(Stateoscope::Adapter::Base, handle?: true) }
+
+    specify 'new adapter overrides the existing one' do
+      subject.register(existing_adapter)
+      subject.register(new_adapter)
+      expect(subject.find!(Class.new, :foo)).to eq(new_adapter)
+    end
+  end
 end
