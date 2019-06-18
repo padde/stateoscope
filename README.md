@@ -25,7 +25,7 @@ $ brew install graphviz
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'stateoscope', '~> 0.1.2', group: :development
+gem 'stateoscope', '~> 0.1.3', group: :development
 ```
 
 And then execute:

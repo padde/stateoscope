@@ -1,3 +1,10 @@
+# v0.1.3 (18.06.2019)
+
+Features:
+
+- add ability to override an existing adapter
+
+
 # v0.1.2 (04.04.2019)
 
 Features:
